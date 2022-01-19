@@ -92,7 +92,7 @@ public class Steque<Item> implements Iterable<Item> {
      * @return true if steque is empty, false otherwise.
      */
     public boolean isEmpty() {
-        return N==0;
+        
     }
     
     /**
@@ -100,18 +100,11 @@ public class Steque<Item> implements Iterable<Item> {
      * @return size as integer.
      */
     public int size() {
-        return N;
+        
     }
     // resize the underlying array holding the elements Time complexity: O(n), Space complexity: O(n)
     private void resize(int capacity) {
-        assert capacity >= N;
-        Item[] copy = (Item[]) new Object[capacity];
-        for (int i = 0; i< N; i++) {
-            copy[i] = s[(first + i) % s.length];
-            }
-        s = copy;
-        first = 0;
-        last  = N;
+       
     }
     
     /**
@@ -120,33 +113,11 @@ public class Steque<Item> implements Iterable<Item> {
      * 
      */
     public Iterator<Item> iterator() {
-        return new ReverseArrayIterator();
+        
     }
 
     // an iterator, doesn't implement remove() since it's optional
     private class ReverseArrayIterator implements Iterator<Item> {
-        private int i;
-        private Item[] copy;
-        public ReverseArrayIterator() {
-            copy = (Item[]) new Object[N];
-            for (int i = 0; i< N; i++) {
-            copy[i] = s[(first + i) % s.length];
-            }
-            s = copy;
-            i = N-1;
-        }
-
-        public boolean hasNext() {
-            return i >= 0;
-        }
-
-        public void remove() {
-            throw new UnsupportedOperationException();
-        }
-
-        public Item next() {
-            if (!hasNext()) throw new NoSuchElementException();
-            return s[i--];
-        }
+        
     }
 }
