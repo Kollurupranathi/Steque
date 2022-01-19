@@ -113,33 +113,11 @@ public class Steque<Item> implements Iterable<Item> {
      * 
      */
     public Iterator<Item> iterator() {
-        return new ReverseArrayIterator();
+
     }
 
     // an iterator, doesn't implement remove() since it's optional
     private class ReverseArrayIterator implements Iterator<Item> {
-        private int i;
-        private Item[] copy;
-        public ReverseArrayIterator() {
-            copy = (Item[]) new Object[N];
-            for (int i = 0; i< N; i++) {
-            copy[i] = s[(first + i) % s.length];
-            }
-            s = copy;
-            i = N-1;
-        }
 
-        public boolean hasNext() {
-            return i >= 0;
-        }
-
-        public void remove() {
-            throw new UnsupportedOperationException();
-        }
-
-        public Item next() {
-            if (!hasNext()) throw new NoSuchElementException();
-            return s[i--];
-        }
     }
 }
