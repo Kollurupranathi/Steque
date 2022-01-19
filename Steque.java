@@ -104,14 +104,7 @@ public class Steque<Item> implements Iterable<Item> {
     }
     // resize the underlying array holding the elements Time complexity: O(n), Space complexity: O(n)
     private void resize(int capacity) {
-        assert capacity >= N;
-        Item[] copy = (Item[]) new Object[capacity];
-        for (int i = 0; i< N; i++) {
-            copy[i] = s[(first + i) % s.length];
-            }
-        s = copy;
-        first = 0;
-        last  = N;
+        
     }
     
     /**
